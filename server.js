@@ -12,6 +12,7 @@ app.get('/', (req, res) =>{
     res.send('welcome from the Home page 😄')
 })
 
+
 app.get('/data', stamper,(req, res) =>{
     const data ={
         10:'even',
@@ -23,12 +24,18 @@ app.get('/data', stamper,(req, res) =>{
 })
 
 function start() {
-    app.listen(PORT,() => {
-      console.log(`you are listneing to ${PORT} `);
-    })
+    app.set( 'port', ( process.env.PORT || 5000 ));
+
+    // Start node server
+    app.listen( app.get( 'port' ), function() {
+      console.log( 'Node server is running on port ' + app.get( 'port' ));
+      });
 }
 app.use('*', notFound)
 module.exports = { 
     app, 
     start
 }
+
+
+
