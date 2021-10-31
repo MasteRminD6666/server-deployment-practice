@@ -12,6 +12,7 @@ app.get('/', (req, res) =>{
     res.send('welcome from the Home page 😄')
 })
 
+
 app.get('/data', stamper,(req, res) =>{
     const data ={
         10:'even',
